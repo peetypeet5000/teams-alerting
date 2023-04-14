@@ -1,7 +1,7 @@
 {
   "name": "teams-alerting",
   "version": "1.0.0",
-  "description": "A simple package to enable sending error objects to a teams chat as a webhook",
+  "description": "Enables sending messages and error objects to teams channels via webhooks",
   "main": "dist/mjs/main.mjs",
   "types": "dist/types/main.d.ts",
   "module": "true",
@@ -30,8 +30,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.sig.oregonstate.edu:ISCS/teams-alerting.git"
+    "url": "https://github.com/peetypeet5000/teams-alerting.git"
   },
-  "author": "Peter LaMontagne",
+  "homepage": "https://github.com/peetypeet5000/teams-alerting",
+  "author": "Peter LaMontagne <peter@peterlamontagne.com>",
   "license": "MIT"
 }
