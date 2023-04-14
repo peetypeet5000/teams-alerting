@@ -37,6 +37,11 @@
   "homepage": "https://github.com/peetypeet5000/teams-alerting#readme",
   "author": "Peter LaMontagne <peter@peterlamontagne.com>",
   "license": "MIT",
+  "keywords": [
+    "microsoft",
+    "teams",
+    "webhook"
+  ],
   "release-it": {
     "github": {
       "release": true
