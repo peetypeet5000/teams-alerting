@@ -31,7 +31,7 @@
     "build": "rm -rf dist/* && tsc -p tsconfig.json && tsc -p tsconfig-cjs.json && mv ./dist/cjs/main.js ./dist/cjs/main.cjs && mv ./dist/mjs/main.js ./dist/mjs/main.mjs",
     "lint": "npx eslint && npx prettier -w .",
     "release": "npm run lint && npm run build && release-it",
-    "test": "npm run build && jest"
+    "test": "npm run build && jest --coverage"
   },
   "repository": {
     "type": "git",
