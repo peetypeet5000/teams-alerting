@@ -4,14 +4,26 @@ module.exports = {
     es2021: true,
   },
   extends: ['standard-with-typescript', 'prettier'],
-  overrides: [],
+  overrides: [
+    {
+      files: ['tests/**'],
+      env: {
+        'jest/globals': true,
+      },
+      plugins: ['jest'],
+      extends: ['plugin:jest/recommended'],
+      rules: { 'jest/prefer-expect-assertions': 'off' },
+    },
+  ],
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
     project: ['./tsconfig.json'],
   },
+
   rules: {
     // Moved to prettier for stylistic rules,
     // see https://typescript-eslint.io/linting/troubleshooting/formatting/
   },
+  plugins: ['jest'],
 };
