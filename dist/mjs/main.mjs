@@ -81,7 +81,7 @@ export async function postMessage(header, sections, channel) {
         throw new Error('You must defined an App Name and Channels with setup() first');
     }
     if (sections.length < 1 || sections.length > 9) {
-        throw new Error('At least one  and no more than 9 message section must be defined');
+        throw new Error('At least one and no more than 9 message section must be defined');
     }
     // format card
     const card = {
@@ -127,7 +127,7 @@ export async function postMessage(header, sections, channel) {
             throw new Error('Channel name not defined');
         }
         else {
-            const channelToSend = definedChannels.find((c) => (c.name = channel));
+            const channelToSend = definedChannels.find((c) => (c.name === channel));
             if (channelToSend == null) {
                 throw new Error(`Could not find channel with name ${channel}`);
             }
