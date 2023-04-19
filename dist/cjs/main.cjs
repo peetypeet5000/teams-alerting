@@ -48,7 +48,6 @@ function validateURL(url) {
         }
     }
     catch (e) {
-        console.error(e);
         throw new Error(`URL ${url} is invalid`);
     }
 }
@@ -134,7 +133,7 @@ async function postMessage(header, sections, channel) {
             throw new Error('Channel name not defined');
         }
         else {
-            const channelToSend = definedChannels.find((c) => (c.name === channel));
+            const channelToSend = definedChannels.find((c) => c.name === channel);
             if (channelToSend == null) {
                 throw new Error(`Could not find channel with name ${channel}`);
             }
