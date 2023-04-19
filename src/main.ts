@@ -53,7 +53,6 @@ function validateURL(url: string): void {
       throw new Error(`URL ${url} is not https`);
     }
   } catch (e) {
-    console.error(e);
     throw new Error(`URL ${url} is invalid`);
   }
 }
