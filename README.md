@@ -2,6 +2,8 @@
 
 This package is used to send errors and general alerts to a Microsoft Teams channel via a Webhook.
 
+[![Node.js CI](https://github.com/peetypeet5000/teams-alerting/actions/workflows/node.js.yml/badge.svg)](https://github.com/peetypeet5000/teams-alerting/actions/workflows/node.js.yml)
+
 ## Requirements
 
 This module is compatible with NodeJS v16.x and later. It also requires a Microsoft Teams Team and the ability to create channels and Webhooks.
