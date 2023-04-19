@@ -78,6 +78,10 @@ Both being logged:
 
 ## Reference
 
+## Testing
+
+This project has unit tests with 100% line coverage. Any PR is expected to pass the tests and include additional tests for the new feature or regression tests for the bug fix. Testing is done via jest, but it is tested against the compiled CommonJS TypeScript for simplicity.
+
 1. [Connector card for Microsoft 365 Groups](https://learn.microsoft.com/en-us/microsoftteams/platform/task-modules-and-cards/cards/cards-reference#connector-card-for-microsoft-365-groups)
 2. [Format Cards in Microsoft Teams](https://learn.microsoft.com/en-us/microsoftteams/platform/task-modules-and-cards/cards/cards-format?tabs=adaptive-md%2Cdesktop%2Cconnector-html)
 3. [Schema Reference](https://learn.microsoft.com/en-us/outlook/actionable-messages/message-card-reference#actions)
