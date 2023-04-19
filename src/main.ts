@@ -151,7 +151,7 @@ export async function postMessage(
     if (typeof channel === 'undefined') {
       throw new Error('Channel name not defined');
     } else {
-      const channelToSend = definedChannels.find((c) => (c.name === channel));
+      const channelToSend = definedChannels.find((c) => c.name === channel);
 
       if (channelToSend == null) {
         throw new Error(`Could not find channel with name ${channel}`);

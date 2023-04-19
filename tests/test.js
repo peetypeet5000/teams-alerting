@@ -160,7 +160,10 @@ describe('postMessage', () => {
       jest.resetModules();
       const alerts = require('../dist/cjs/main.cjs');
 
-      alerts.setup('AppName', [{url: 'https://oregonstateuniversity.webhook.office.com', name: 'default'}, {url: 'https://test.com', name: 'high'}]);
+      alerts.setup('AppName', [
+        { url: 'https://oregonstateuniversity.webhook.office.com', name: 'default' },
+        { url: 'https://test.com', name: 'high' },
+      ]);
 
       alerts.postMessage('Alert Header', ['Message Section'], 'high');
 
@@ -171,20 +174,24 @@ describe('postMessage', () => {
       jest.resetModules();
       const alerts10 = require('../dist/cjs/main.cjs');
 
-      alerts10.setup('AppName', [{url: 'https://test.org', name: 'default'}, {url: 'https://test.com', name: 'high'}, {url: 'https://test.edu', name: 'low'}]);
+      alerts10.setup('AppName', [
+        { url: 'https://test.org', name: 'default' },
+        { url: 'https://test.com', name: 'high' },
+        { url: 'https://test.edu', name: 'low' },
+      ]);
 
-      await expect(
-        alerts10.postMessage('Alert Header', ['Message Section'])
-      ).rejects.toThrow('Channel name not defined');
+      await expect(alerts10.postMessage('Alert Header', ['Message Section'])).rejects.toThrow(
+        'Channel name not defined'
+      );
     });
 
     it('requires setup() to have been called first', async () => {
       jest.resetModules();
       const alerts = require('../dist/cjs/main.cjs');
 
-      await expect(
-        alerts.postMessage('Alert Header', ['Message Section'])
-      ).rejects.toThrow('You must defined an App Name and Channels with setup() first');
+      await expect(alerts.postMessage('Alert Header', ['Message Section'])).rejects.toThrow(
+        'You must defined an App Name and Channels with setup() first'
+      );
     });
   });
 
@@ -192,18 +199,21 @@ describe('postMessage', () => {
     jest.resetModules();
     const alerts9 = require('../dist/cjs/main.cjs');
 
-    alerts9.setup('AppName', [{url: 'https://oregonstateuniversity.webhook.office.com', name: 'default'}, {url: 'https://test.com', name: 'high'}]);
+    alerts9.setup('AppName', [
+      { url: 'https://oregonstateuniversity.webhook.office.com', name: 'default' },
+      { url: 'https://test.com', name: 'high' },
+    ]);
 
-    await expect(
-      alerts9.postMessage('Alert Header', ['Message Section'], 'balls')
-    ).rejects.toThrow(`Could not find channel with name balls`);
+    await expect(alerts9.postMessage('Alert Header', ['Message Section'], 'balls')).rejects.toThrow(
+      `Could not find channel with name balls`
+    );
   });
 });
 
 describe('setup', () => {
   beforeEach(() => {
     jest.resetModules();
-  })
+  });
 
   it('requires at least one channel', () => {
     const alerts1 = require('../dist/cjs/main.cjs');
@@ -225,7 +235,7 @@ describe('setup', () => {
     const alerts5 = require('../dist/cjs/main.cjs');
 
     expect(() => {
-      alerts5.setup('AppName', [{url: 'not-a-url', name: 'default'}]);
+      alerts5.setup('AppName', [{ url: 'not-a-url', name: 'default' }]);
     }).toThrow(`URL not-a-url is invalid`);
   });
 
@@ -233,14 +243,17 @@ describe('setup', () => {
     const alerts6 = require('../dist/cjs/main.cjs');
 
     expect(() => {
-      alerts6.setup('AppName', [{url: 'http://url.com', name: 'default'}]);
+      alerts6.setup('AppName', [{ url: 'http://url.com', name: 'default' }]);
     }).toThrow('URL http://url.com is invalid');
   });
 
   it('allows multiple valid channels', () => {
     const alerts3 = require('../dist/cjs/main.cjs');
 
-    alerts3.setup('AppName', [{url: 'https://oregonstateuniversity.webhook.office.com', name: 'default'}, {url: 'https://test.com', name: 'high'}]);
+    alerts3.setup('AppName', [
+      { url: 'https://oregonstateuniversity.webhook.office.com', name: 'default' },
+      { url: 'https://test.com', name: 'high' },
+    ]);
 
     alerts3.postMessage('Alert Header', ['Alert Message'], 'high');
 
@@ -251,7 +264,10 @@ describe('setup', () => {
     const alerts7 = require('../dist/cjs/main.cjs');
 
     expect(() => {
-      alerts7.setup('AppName', [{url: 'https://oregonstateuniversity.webhook.office.com', name: 'default'}, {url: 'https://test.com', name: 'default'}]);;
+      alerts7.setup('AppName', [
+        { url: 'https://oregonstateuniversity.webhook.office.com', name: 'default' },
+        { url: 'https://test.com', name: 'default' },
+      ]);
     }).toThrow('Channel default already exists, pick a different name');
   });
-})
+});
