@@ -126,7 +126,7 @@ async function postMessage(header, sections, channel) {
     });
     // If only one channel, always use that. Otherwise, find matching channel name
     if (definedChannels.length === 1) {
-        void doPost(card, definedChannels[0].url);
+        await doPost(card, definedChannels[0].url);
     }
     else {
         if (typeof channel === 'undefined') {
@@ -138,7 +138,7 @@ async function postMessage(header, sections, channel) {
                 throw new Error(`Could not find channel with name ${channel}`);
             }
             else {
-                void doPost(card, channelToSend.url);
+                await doPost(card, channelToSend.url);
             }
         }
     }
