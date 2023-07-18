@@ -140,13 +140,13 @@ describe('postMessage', () => {
   describe('postMessage validation', () => {
     it('requires at least 1 section', async () => {
       await expect(postMessage('Alert Header', [], 'default')).rejects.toThrow(
-        'At least one and no more than 9 message section must be defined'
+        'At least one and no more than 9 message section must be defined',
       );
     });
 
     it('requires less than 10 sections', async () => {
       await expect(
-        postMessage('Alert Header', ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'], 'default')
+        postMessage('Alert Header', ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'], 'default'),
       ).rejects.toThrow('At least one and no more than 9 message section must be defined');
     });
 
@@ -181,7 +181,7 @@ describe('postMessage', () => {
       ]);
 
       await expect(alerts10.postMessage('Alert Header', ['Message Section'])).rejects.toThrow(
-        'Channel name not defined'
+        'Channel name not defined',
       );
     });
 
@@ -190,7 +190,7 @@ describe('postMessage', () => {
       const alerts = require('../dist/cjs/main.cjs');
 
       await expect(alerts.postMessage('Alert Header', ['Message Section'])).rejects.toThrow(
-        'You must defined an App Name and Channels with setup() first'
+        'You must defined an App Name and Channels with setup() first',
       );
     });
   });
@@ -205,7 +205,7 @@ describe('postMessage', () => {
     ]);
 
     await expect(alerts9.postMessage('Alert Header', ['Message Section'], 'balls')).rejects.toThrow(
-      `Could not find channel with name balls`
+      `Could not find channel with name balls`,
     );
   });
 });
