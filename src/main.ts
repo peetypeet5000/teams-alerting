@@ -95,7 +95,7 @@ export function setup(appName: string, channels: Channel[]): void {
 export async function postMessage(
   header: string,
   sections: Array<Error | string>,
-  channel: string | undefined
+  channel: string | undefined,
 ): Promise<void> {
   if (definedAppName === '' || definedChannels.length <= 0) {
     throw new Error('You must defined an App Name and Channels with setup() first');
@@ -132,7 +132,7 @@ export async function postMessage(
           title: '**Stack:**',
           // Pops the error message off the stack and formats so it prints correctly
           text: '\n' + section.stack.slice(section.stack.indexOf('\n')),
-        }
+        },
       );
 
       // Otherwise, just print the string
