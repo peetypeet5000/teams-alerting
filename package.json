@@ -1,6 +1,6 @@
 {
   "name": "teams-alerting",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "description": "Enables sending messages and error objects to teams channels via webhooks",
   "main": "dist/mjs/main.mjs",
   "types": "dist/types/main.d.ts",
